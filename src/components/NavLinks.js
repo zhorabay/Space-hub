@@ -5,7 +5,7 @@ function NavLinks() {
     <header>
       <div className="nav-logo">
         <img src="./images/planet.png" alt="logo" />
-        <h1 className="page-title">Space Traveler's Hub</h1>
+        <h1 className="page-title">Space Traveler&apos;s Hub</h1>
       </div>
       <ul className="tab-links">
         <li>
