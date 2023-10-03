@@ -1,0 +1,51 @@
+.rocket-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin: 20px;
+}
+
+.rocket-img {
+  width: 300px;
+}
+
+.rocket-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rocket-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.rocket-description {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.reserve-rocket {
+  color: white;
+  background-color: rgb(35 101 255);
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.reserve-rocket:hover {
+  background-color: rgb(13, 76, 222);
+}
+
+.cancel-reservation {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 12px;
+  border-color: grey;
+  color: grey;
+  font-size: 16px;
+}
