@@ -19,6 +19,7 @@
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "camelcase": "off",
+    "arrow-body-style": "off",
     "no-shadow": "off"
   },
   "overrides": [

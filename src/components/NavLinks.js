@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-function NavLinks() {
+const NavLinks = () => {
   return (
     <header>
       <div className="nav-logo">
@@ -20,6 +20,6 @@ function NavLinks() {
       </ul>
     </header>
   );
-}
+};
 
 export default NavLinks;
