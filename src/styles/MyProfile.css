@@ -1,0 +1,44 @@
+.myprofile {
+  display: flex;
+  gap: 20px;
+  margin: 30px auto;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.mymissions h2,
+.myrockets h2 {
+  padding-bottom: 10px;
+}
+
+.nomissions,
+.noreservations {
+  font-style: italic;
+  width: 350px;
+  font-size: 22px;
+}
+
+.join-missions-link,
+.make-reservetions-link {
+  color: rgb(35 101 255);
+  font-style: normal;
+  font-size: 18px;
+}
+
+.join-missions-link:hover,
+.make-reservetions-link:hover {
+  color: rgb(13, 76, 222);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-table {
+  list-style: none;
+  padding: 12px;
+  border: 1px solid grey;
+  width: 350px;
+}
