@@ -1,59 +1,56 @@
-.rocket-card {
-  display: flex;
-  gap: 16px;
-  padding: 15px;
-  width: 95%;
-  margin: 0 auto;
+/* stylelint-disable color-hex-length */
+.rocket {
+  display: grid;
 }
 
-.rocket-img {
+.rocket-alone {
+  display: flex;
+  padding: 2rem 4rem;
+  gap: 1rem;
+}
+
+.rocket-alone img {
+  height: 200px;
   width: 300px;
 }
 
-.rocket-body {
+.rocket-alone .rocket-desc {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   align-items: flex-start;
-  gap: 10px;
 }
 
-.rocket-description {
-  font-size: 14px;
-  font-weight: 400;
+.rocket-alone h2 {
+  font-size: 2rem;
+  font-weight: 500;
 }
 
-.reserve-rocket {
+.rocket-alone button {
+  padding: 10px;
+}
+
+.rocket-reservation {
+  background-color: rgb(57, 159, 255);
   color: white;
-  background-color: rgb(35 101 255);
-  font-size: 16px;
   border: none;
-  border-radius: 8px;
-  padding: 12px;
-}
-
-.reserve-rocket:hover {
-  background-color: rgb(13, 76, 222);
 }
 
 .cancel-reservation {
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 12px;
-  border-color: grey;
-  color: grey;
-  font-size: 16px;
+  background: transparent;
+  border: 1px solid rgb(105, 105, 105);
+  color: rgb(105, 105, 105);
 }
 
-.not-reserved {
-  display: none;
+.badge {
+  display: flex;
+  align-items: flex-start;
 }
 
-.reserved {
-  color: white;
-  padding: 4px 6px;
-  margin-right: 3px;
-  font-size: 11px;
-  background-color: rgb(61, 156, 161);
-  border-radius: 4px;
-  border: none;
+.reserved-badge {
+  background-color: #17a2b9;
+  color: #fff;
+  height: 20px;
+  padding: 0 5px;
+  margin-right: 5px;
 }

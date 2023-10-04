@@ -3,9 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid grey;
-  width: 95%;
-  margin: 0 auto;
+  font-family: arial, sans-serif;
+  border-bottom: solid 2px rgb(211, 211, 211);
 }
 
 .brand {
@@ -24,10 +23,17 @@
 }
 
 .nav-list {
-  list-style: none;
   display: flex;
-  gap: 20px;
-  font-size: 16px;
+  gap: 1rem;
+}
+
+.my-profile-link {
+  border-left: solid 2px;
+  padding-left: 1rem;
+}
+
+ul {
+  list-style: none;
 }
 
 li a {

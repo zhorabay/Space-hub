@@ -14,14 +14,11 @@ function Navbar() {
       </div>
       <ul className="nav-list">
         <li>
-          <NavLink to="/" className={(nav) => handleActive(nav)}>Rockets</NavLink>
-        </li>
-        <li>
           <NavLink to="/missions" className={(nav) => handleActive(nav)}>Missions</NavLink>
+          <NavLink to="/rockets" className={(nav) => handleActive(nav)}>Rockets</NavLink>
         </li>
-        <hr />
-        <li>
-          <NavLink to="/myprofile" className={(nav) => handleActive(nav)}>My Profile</NavLink>
+        <li className="my-profile-link">
+          <NavLink to="/" className={(nav) => handleActive(nav)}>My Profile</NavLink>
         </li>
       </ul>
     </header>
