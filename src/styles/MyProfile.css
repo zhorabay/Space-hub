@@ -1,0 +1,31 @@
+.myprofile {
+  display: flex;
+  gap: 20px;
+}
+
+.nomissions,
+.noreservations {
+  font-style: italic;
+}
+
+.join-missions-link,
+.make-reservetions-link {
+  color: rgb(35 101 255);
+}
+
+.join-missions-link:hover,
+.make-reservetions-link:hover {
+  color: rgb(13, 76, 222);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-table {
+  list-style: none;
+  padding: 12px;
+  border: 1px solid grey;
+}
