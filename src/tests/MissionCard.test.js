@@ -35,5 +35,4 @@ describe('MissionCard Component', () => {
 
     expect(screen.getByText('Not a member')).toBeInTheDocument();
   });
-
 });

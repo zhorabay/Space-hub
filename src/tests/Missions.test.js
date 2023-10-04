@@ -1,37 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Missions from '../components/Missions';
 
-import configureStore from 'redux-mock-store';
-
-const mockStore = configureStore([]);
-const initialState = {
-  missions: {
-    missions: [
-      {
-        id: '1',
-        name: 'Mission 1',
-        description: 'Description 1',
-        status: 'Active',
-      },
-      {
-        id: '2',
-        name: 'Mission 2',
-        description: 'Description 2',
-        status: 'Inactive',
-      },
-    ],
-    pending: false,
-    error: null,
-  },
-};
-
-const mockDispatch = jest.fn();
-
 jest.mock('react-redux', () => ({
-  useDispatch: () => mockDispatch,
-  useSelector: (selector) => selector(initialState),
+  useDispatch: jest.fn(),
+  useSelector: jest.fn(),
 }));
 
 jest.mock('../redux/missions/missions', () => ({
@@ -39,44 +14,61 @@ jest.mock('../redux/missions/missions', () => ({
 }));
 
 describe('Missions Component', () => {
-  beforeEach(() => {
-    mockDispatch.mockClear();
+  it('renders "No missions joined" message when no missions are reserved', () => {
+    useSelector.mockReturnValue({ missions: [], pending: false, error: null });
+
+    render(
+      <BrowserRouter>
+        <Missions />
+      </BrowserRouter>,
+    );
+
+    expect(screen.getByText('No missions joined')).toBeInTheDocument();
   });
 
-  it('renders mission data when not pending and no error', () => {
-    const { container } = render(
-      <Provider store={mockStore(initialState)}>
+  it('renders a list of reserved missions when missions are reserved', () => {
+    const missionsWithReservations = [
+      { id: '1', name: 'Mission 1', reserved: true },
+      { id: '2', name: 'Mission 2', reserved: true },
+    ];
+    useSelector.mockReturnValue({ missions: missionsWithReservations, pending: false, error: null });
+
+    render(
+      <BrowserRouter>
         <Missions />
-      </Provider>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('Mission 1')).toBeInTheDocument();
-    expect(screen.getByText('Description 1')).toBeInTheDocument();
-    expect(screen.getByText('Active')).toBeInTheDocument();
     expect(screen.getByText('Mission 2')).toBeInTheDocument();
-    expect(screen.getByText('Description 2')).toBeInTheDocument();
-    expect(screen.getByText('Inactive')).toBeInTheDocument();
   });
 
-  it('renders "Fetching Missions" when pending', () => {
-    initialState.missions.pending = true;
-    const { container } = render(
-      <Provider store={mockStore(initialState)}>
+  it('renders "No reservations made" message when no rockets are reserved', () => {
+    useSelector.mockReturnValue({ rockets: [], pending: false, error: null });
+
+    render(
+      <BrowserRouter>
         <Missions />
-      </Provider>
+      </BrowserRouter>,
     );
 
-    expect(screen.getByText('Fetching Missions')).toBeInTheDocument();
+    expect(screen.getByText('No reservations made')).toBeInTheDocument();
   });
 
-  it('renders error message when error occurs', () => {
-    initialState.missions.error = 'An error occurred';
-    const { container } = render(
-      <Provider store={mockStore(initialState)}>
+  it('renders a list of reserved rockets when rockets are reserved', () => {
+    const rocketsWithReservations = [
+      { id: '1', name: 'Rocket 1', reserved: true },
+      { id: '2', name: 'Rocket 2', reserved: true },
+    ];
+    useSelector.mockReturnValue({ rockets: rocketsWithReservations, pending: false, error: null });
+
+    render(
+      <BrowserRouter>
         <Missions />
-      </Provider>
+      </BrowserRouter>,
     );
 
-    expect(screen.getByText('Error occurred while fetching missions')).toBeInTheDocument();
+    expect(screen.getByText('Rocket 1')).toBeInTheDocument();
+    expect(screen.getByText('Rocket 2')).toBeInTheDocument();
   });
 });

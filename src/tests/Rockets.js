@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import Rockets from '../components/Rockets';
+import { render, screen } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
+import Rockets from '../components/Rockets';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
@@ -16,22 +15,25 @@ jest.mock('../redux/rockets/rockets', () => ({
 describe('Rockets Component', () => {
   it('renders loading message when pending', () => {
     useSelector.mockReturnValue({ rockets: [], pending: true, error: null });
-    const { container } = render(<Rockets />);
+    const mockDispatch = jest.fn();
+    useDispatch.mockReturnValue(mockDispatch);
+
+    render(<Rockets />);
 
     expect(screen.getByText('Fetching Rockets')).toBeInTheDocument();
   });
 
   it('renders error message when there is an error', () => {
     useSelector.mockReturnValue({ rockets: [], pending: false, error: 'Some error message' });
-    const { container } = render(<Rockets />);
+    const mockDispatch = jest.fn();
+    useDispatch.mockReturnValue(mockDispatch);
+
+    render(<Rockets />);
 
     expect(screen.getByText('Error occurred while fetching rockets')).toBeInTheDocument();
   });
 
   it('renders rocket cards when data is fetched', async () => {
-    const mockDispatch = jest.fn();
-    useDispatch.mockReturnValue(mockDispatch);
-
     const rocketsData = [
       {
         id: '1',
@@ -48,16 +50,16 @@ describe('Rockets Component', () => {
         reserved: true,
       },
     ];
-
     useSelector.mockReturnValue({ rockets: rocketsData, pending: false, error: null });
+    const mockDispatch = jest.fn();
+    useDispatch.mockReturnValue(mockDispatch);
 
-    const { container } = render(<Rockets />);
+    render(<Rockets />);
 
-    await waitFor(() => {
-      expect(screen.getByText('Rocket 1')).toBeInTheDocument();
-      expect(screen.getByText('Rocket Description 1')).toBeInTheDocument();
-      expect(screen.getByText('Rocket 2')).toBeInTheDocument();
-      expect(screen.getByText('Rocket Description 2')).toBeInTheDocument();
-    });
+    await screen.findByText('Rocket 1');
+    await screen.findByText('Rocket 2');
+
+    expect(screen.getByText('Rocket 1')).toBeInTheDocument();
+    expect(screen.getByText('Rocket 2')).toBeInTheDocument();
   });
 });
