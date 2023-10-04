@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import '../styles/MyProfile.css';
 
 function MyProfile() {
-  const missionsData = useSelector((state) => state.missions.filter((mission) => mission.reserved));
-  const rocketsData = useSelector((state) => state.rockets.filter((rocket) => rocket.reserved));
+  const { rockets } = useSelector((state) => state.rockets);
+  const { missions } = useSelector((state) => state.missions);
+  const missionsData = missions.filter((mission) => mission.reserved);
+  const rocketsData = rockets.filter((rocks) => rocks.reserved);
 
   return (
     <section className="myprofile">
