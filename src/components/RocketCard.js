@@ -18,6 +18,13 @@ function RocketCard({ props }) {
         <button className="reserve-rocket" type="button" onClick={() => dispatch(handleRocket(id))}>Reserve Rocket</button>
       );
     }
+    if (btn === 'reservation') {
+      button = reserved ? (
+        <button className="reserved" type="button">Reserved</button>
+      ) : (
+        <button className="not-reserved" type="button">Not reserved</button>
+      );
+    }
     return button;
   };
 
@@ -26,7 +33,10 @@ function RocketCard({ props }) {
       <img className="rocket-img" src={img} alt="rocket" />
       <div className="rocket-body">
         <h2 className="rocket-name">{name}</h2>
-        <p className="rocket-description">{description}</p>
+        <p className="rocket-description">
+          {getButton(reserved, 'reservation')}
+          {description}
+        </p>
         {getButton(reserved, 'reserve')}
       </div>
     </div>
