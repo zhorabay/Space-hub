@@ -12,9 +12,9 @@ function MissionCard({ props }) {
     let button;
     if (btn === 'member') {
       button = reserved ? (
-        <button className="active-member-btn" type="button">active member</button>
+        <span className="active-member-badge">active member</span>
       ) : (
-        <button className="not-member-btn" type="button">Not a member</button>
+        <span className="not-member-badge">Not a member</span>
       );
     }
     if (btn === 'mission') {
@@ -31,7 +31,7 @@ function MissionCard({ props }) {
     <>
       <td className="mission-name">{name}</td>
       <td className="mission-description">{description}</td>
-      <td className="table-btns">{getButton(reserved, 'member')}</td>
+      <td className="table-badges">{getButton(reserved, 'member')}</td>
       <td className="table-btns">{getButton(reserved, 'mission')}</td>
     </>
   );

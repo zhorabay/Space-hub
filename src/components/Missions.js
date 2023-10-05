@@ -8,8 +8,10 @@ function Missions() {
   const dispatch = useDispatch();
   const { missions, pending, error } = useSelector((store) => store.missions);
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (missions.length < 1) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, missions.length]);
 
   let content;
 
