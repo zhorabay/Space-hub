@@ -5,6 +5,8 @@
   padding: 1rem;
   font-family: arial, sans-serif;
   border-bottom: solid 2px rgb(211, 211, 211);
+  width: 95%;
+  margin: 0 auto;
 }
 
 .brand {
@@ -29,7 +31,6 @@
 
 .my-profile-link {
   border-left: solid 2px;
-  padding-left: 1rem;
 }
 
 ul {
@@ -39,6 +40,7 @@ ul {
 li a {
   text-decoration: none;
   color: rgb(57, 159, 255);
+  padding-left: 16px;
 }
 
 .active-link {

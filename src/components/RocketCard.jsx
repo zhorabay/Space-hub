@@ -26,8 +26,10 @@ function RocketCard({ props }) {
       <div className="rocket-desc">
         <h2>{name}</h2>
         <div className="badge">
-          {reserved && <span className="reserved-badge">Reserved</span>}
-          <p>{description}</p>
+          <p>
+            {reserved && <span className="reserved-badge">Reserved</span>}
+            {description}
+          </p>
         </div>
         {reserved ? (
           <button type="button" className="cancel-reservation" onClick={handleReserveClick}>
