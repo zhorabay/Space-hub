@@ -31,7 +31,7 @@ function MyProfile() {
         {rocketsData.length === 0 ? (
           <div className="noreservations">
             <p>No reservations made</p>
-            <Link className="make-reservetions-link" to="/rockets">Make Reservations</Link>
+            <Link className="make-reservetions-link" to="/">Make Reservations</Link>
           </div>
         ) : (
           <ul className="list">
