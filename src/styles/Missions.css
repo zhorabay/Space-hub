@@ -2,8 +2,8 @@
 table {
   border-collapse: collapse;
   font-family: arial, sans-serif;
-  width: 98%;
-  margin: 1rem;
+  width: 95%;
+  margin: 10px auto;
 }
 
 tr:nth-child(even) {
