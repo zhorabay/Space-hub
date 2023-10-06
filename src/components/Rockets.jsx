@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/rockets';
+import { fetchRockets } from '../redux/Rockets/rockets';
 import RocketCard from './RocketCard';
 import '../styles/Rockets.css';
 
-function Rockets() {
+const Rockets = () => {
   const dispatch = useDispatch();
   const { rockets, pending, error } = useSelector((store) => store.rockets);
   useEffect(() => {
@@ -40,6 +40,6 @@ function Rockets() {
       {content}
     </section>
   );
-}
+};
 
 export default Rockets;

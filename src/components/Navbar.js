@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../assets/planet.png';
 import styles from '../styles/Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
   const handleActive = (nav) => (nav.isActive ? 'active-link' : '');
   return (
     <header className="navbar" style={styles}>
@@ -14,15 +14,17 @@ function Navbar() {
       </div>
       <ul className="nav-list">
         <li>
-          <NavLink to="/" className={(nav) => handleActive(nav)}>Rockets</NavLink>
           <NavLink to="/missions" className={(nav) => handleActive(nav)}>Missions</NavLink>
         </li>
+        <li>
+          <NavLink to="/" className={(nav) => handleActive(nav)}>Rockets</NavLink>
+        </li>
         <li className="my-profile-link">
-          <NavLink to="/myprofile" className={(nav) => handleActive(nav)}>My Profile</NavLink>
+          <NavLink to="/profile" className={(nav) => handleActive(nav)}>My Profile</NavLink>
         </li>
       </ul>
     </header>
   );
-}
+};
 
 export default Navbar;

@@ -1,10 +1,9 @@
-/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { reserveRocket, cancelReservation } from '../redux/rockets/rockets';
+import { reserveRocket, cancelReservation } from '../redux/Rockets/rockets';
 import '../styles/Rockets.css';
 
-function RocketCard({ props }) {
+const RocketCard = ({ props }) => {
   const {
     id, name, image, description, reserved,
   } = props;
@@ -26,10 +25,8 @@ function RocketCard({ props }) {
       <div className="rocket-desc">
         <h2>{name}</h2>
         <div className="badge">
-          <p>
-            {reserved && <span className="reserved-badge">Reserved</span>}
-            {description}
-          </p>
+          {reserved && <span className="reserved-badge">Reserved</span>}
+          <p>{description}</p>
         </div>
         {reserved ? (
           <button type="button" className="cancel-reservation" onClick={handleReserveClick}>
@@ -43,9 +40,11 @@ function RocketCard({ props }) {
       </div>
     </div>
   );
-}
+};
 
 RocketCard.propTypes = {
+  props: PropTypes.shape({
+  }).isRequired,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { handleMission } from '../redux/Missions/missions';
 
-function MissionCard({ props }) {
+const MissionCard = ({ props }) => {
   const {
     name, description, reserved, id,
   } = props;
@@ -35,12 +35,10 @@ function MissionCard({ props }) {
       <td className="table-btns">{getButton(reserved, 'mission')}</td>
     </>
   );
-}
+};
 
 MissionCard.propTypes = {
   props: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

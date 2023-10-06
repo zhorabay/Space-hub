@@ -4,7 +4,7 @@ import { fetchMissions } from '../redux/Missions/missions';
 import '../styles/Missions.css';
 import MissionCard from './MissionCard';
 
-function Missions() {
+const Missions = () => {
   const dispatch = useDispatch();
   const { missions, pending, error } = useSelector((store) => store.missions);
   useEffect(() => {
@@ -50,6 +50,6 @@ function Missions() {
       {content}
     </section>
   );
-}
+};
 
 export default Missions;

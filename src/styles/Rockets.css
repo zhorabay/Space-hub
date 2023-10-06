@@ -1,11 +1,10 @@
-/* stylelint-disable color-hex-length */
 .rocket {
   display: grid;
+  margin: 1rem;
 }
 
 .rocket-alone {
   display: flex;
-  padding: 2rem 4rem;
   gap: 1rem;
 }
 
@@ -17,7 +16,7 @@
 .rocket-alone .rocket-desc {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   align-items: flex-start;
 }
 
@@ -28,7 +27,6 @@
 
 .rocket-alone button {
   padding: 10px;
-  border-radius: 8px;
 }
 
 .rocket-reservation {
