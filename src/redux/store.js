@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import missionsReducer from './Missions/missions';
-import rocketsReducer from './Rockets/rockets';
+import missionsReducer from './mission/mission';
+import rocketsReducer from './rocket/rocket';
 
 const store = configureStore({
   reducer: {

@@ -27,19 +27,19 @@ Object {
         >
           <li>
             <a
-              class=""
-              href="/missions"
-            >
-              Missions
-            </a>
-          </li>
-          <li>
-            <a
               aria-current="page"
               class="active-link"
               href="/"
             >
               Rockets
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+              href="/missions"
+            >
+              Missions
             </a>
           </li>
           <li
@@ -79,19 +79,19 @@ Object {
       >
         <li>
           <a
-            class=""
-            href="/missions"
-          >
-            Missions
-          </a>
-        </li>
-        <li>
-          <a
             aria-current="page"
             class="active-link"
             href="/"
           >
             Rockets
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/missions"
+          >
+            Missions
           </a>
         </li>
         <li

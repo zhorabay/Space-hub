@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/Rockets/rockets';
+import { fetchRockets } from '../redux/rocket/rocket';
 import RocketCard from './RocketCard';
 import '../styles/Rockets.css';
 
